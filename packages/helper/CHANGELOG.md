@@ -1,5 +1,15 @@
 # @bingtsingw/orchid-helper
 
+## 0.3.0
+
+### Minor Changes
+
+- [`9d24884`](https://github.com/bingtsingw/orchid-helper/commit/9d2488411b9f7ebde38e03a2c02a88ebe1dcb42f) Thanks [@bingtsingw](https://github.com/bingtsingw)! - update package exports
+
+### Patch Changes
+
+- [`3d3bee7`](https://github.com/bingtsingw/orchid-helper/commit/3d3bee70d2ee508db090781047f0f19461108445) Thanks [@bingtsingw](https://github.com/bingtsingw)! - fix typo
+
 ## 0.2.0
 
 ### Minor Changes
