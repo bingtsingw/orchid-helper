@@ -4,7 +4,7 @@
   "license": "MIT",
   "type": "module",
   "main": "./dist/index.js",
-  "types": "./src/index.d.ts",
+  "types": "./src/index.ts",
   "files": [
     "src",
     "dist"
