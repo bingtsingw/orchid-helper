@@ -17,7 +17,7 @@
     "@paralleldrive/cuid2": "^2.2.2",
     "@prisma/client": "^5.17.0",
     "date-fns": "^3.6.0",
-    "orchid-orm": "^1.34.1",
+    "orchid-orm": "^1.34.5",
     "prisma": "^5.17.0"
   }
 }

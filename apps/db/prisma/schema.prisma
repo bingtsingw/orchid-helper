@@ -28,5 +28,26 @@ model User {
   verification Json    @default("{}") @db.JsonB
   active       Boolean @default(false) @db.Boolean
 
+  posts Post[]
+
   @@map("user")
+}
+
+model Post {
+  id        String    @id @default(cuid()) @db.VarChar
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamp
+  updatedAt DateTime  @default(now()) @updatedAt @map("updated_at") @db.Timestamp
+  deletedAt DateTime? @map("deleted_at") @db.Timestamp
+  publishAt DateTime? @map("publish_at") @db.Timestamp
+
+  state    String? @db.VarChar
+  title    String? @db.VarChar
+  cover    String? @db.VarChar
+  content  String? @db.Text
+  location Json    @default("{}") @db.JsonB
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String @map("user_id") @db.VarChar
+
+  @@map("post")
 }

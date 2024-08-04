@@ -1,4 +1,5 @@
 import { orchidORM } from 'orchid-orm';
+import { TablePost } from './post';
 import { TableUser } from './user';
 
 export const db = orchidORM(
@@ -8,5 +9,6 @@ export const db = orchidORM(
   },
   {
     user: TableUser,
+    post: TablePost,
   },
 );

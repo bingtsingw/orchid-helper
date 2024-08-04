@@ -1,10 +1,10 @@
 import { db } from '@/src';
 import { describe, expect, test } from 'bun:test';
 import { parseISO } from 'date-fns';
-import { expectCloseToDate, expectNotCloseToDate } from './_util';
+import { expectCloseToDate, expectNotCloseToDate } from '../_util';
 
-describe('orchid', () => {
-  test('_base: createdAt', async () => {
+describe('BaseTable', () => {
+  test('createdAt', async () => {
     const now = new Date();
     const user = await db.user.create({});
     const query = db.user.find(user.id);
@@ -17,7 +17,7 @@ describe('orchid', () => {
     expectCloseToDate(await query.get('createdAt'), t1);
   });
 
-  test('_base: updatedAt', async () => {
+  test('updatedAt', async () => {
     const now = new Date();
     const user = await db.user.create({});
     const query = db.user.find(user.id);
@@ -38,7 +38,7 @@ describe('orchid', () => {
     expectCloseToDate(await query.get('updatedAt'), now);
   });
 
-  test('_base: deletedAt', async () => {
+  test('deletedAt', async () => {
     const now = new Date();
     const user = await db.user.create({});
     const query = db.user.find(user.id);
@@ -62,5 +62,16 @@ describe('orchid', () => {
     await query.includeDeleted().update({ deletedAt: t1.toISOString() });
     expectNotCloseToDate(await query.includeDeleted().get('deletedAt'), now);
     expectCloseToDate(await query.includeDeleted().get('deletedAt'), t1);
+  });
+
+  test('xTimestamp', async () => {
+    const now = new Date();
+    const user = await db.user.create({});
+    const post = await db.post.create({ userId: user.id, publishAt: new Date() });
+
+    expectCloseToDate(await db.post.find(post.id).get('publishAt'), now);
+
+    await db.post.find(post.id).update({ publishAt: now.toISOString() });
+    expectCloseToDate(await db.post.find(post.id).get('publishAt'), now);
   });
 });
