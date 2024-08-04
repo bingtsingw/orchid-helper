@@ -1,0 +1,46 @@
+{
+  "name": "@bingtsingw/orchid-helper",
+  "version": "0.0.0",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    "default": "./dist/index.js",
+    "types": "./dist/index.d.ts"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "check-type": "tsc --noEmit",
+    "dev": "tsup --watch",
+    "lint:js": "eslint . --cache --ext .js,.jsx,.ts,.tsx",
+    "lint:js:fix": "eslint . --cache --ext .js,.jsx,.ts,.tsx --fix"
+  },
+  "eslintConfig": {
+    "extends": "@xstools-dev/eslint-config/base"
+  },
+  "devDependencies": {
+    "@paralleldrive/cuid2": "^2.2.2",
+    "orchid-orm": "^1.34.1"
+  },
+  "peerDependencies": {
+    "@paralleldrive/cuid2": "^2.2.2",
+    "orchid-orm": "^1.34.1"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "tsup": {
+    "entry": [
+      "src/index.ts"
+    ],
+    "format": [
+      "esm"
+    ],
+    "dts": true,
+    "clean": true,
+    "minify": true
+  }
+}
