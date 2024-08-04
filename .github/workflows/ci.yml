@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: orchid-helper-test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: bingtsingw/composite-actions/pnpm-install@v1
+      - run: pnpm run test
+      - run: |
+          pnpm run check-publish
+          pnpm run check-mono
+          cd apps/db
+          pnpm run db:test-rebuild
+          pnpm run db:test

@@ -38,9 +38,6 @@ importers:
       orchid-orm:
         specifier: ^1.34.1
         version: 1.34.4(typescript@5.5.4)
-      orchid-orm-test-factory:
-        specifier: ^0.7.30
-        version: 0.7.32
       prisma:
         specifier: ^5.17.0
         version: 5.17.0
@@ -59,12 +56,6 @@ packages:
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
-
-  '@anatine/zod-mock@3.13.4':
-    resolution: {integrity: sha512-yO/KeuyYsEDCTcQ+7CiRuY3dnafMHIZUMok6Ci7aERRCTQ+/XmsiPk/RnMx5wlLmWBTmX9kw+PavbMsjM+sAJA==}
-    peerDependencies:
-      '@faker-js/faker': ^7.0.0 || ^8.0.0
-      zod: ^3.21.4
 
   '@augment-vir/common@23.4.0':
     resolution: {integrity: sha512-QIrJ1doD00TNbOzeVrk9KgPTzRlIjayxERnhtbQjK/AFPj5yElcB03GbnGdQZPzws/R+5gfMM5cZiH7QyBP+Kg==}
@@ -1185,10 +1176,6 @@ packages:
   '@eslint/js@8.57.0':
     resolution: {integrity: sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-
-  '@faker-js/faker@8.4.1':
-    resolution: {integrity: sha512-XQ3cU+Q8Uqmrbf2e0cIC/QN43sTBSC8KF12u29Mb47tWrt2hAgBXSgpZMj4Ao8Uk0iJcU99QsOCaIL8934obCg==}
-    engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0, npm: '>=6.14.13'}
 
   '@humanwhocodes/config-array@0.11.14':
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}
@@ -3330,10 +3317,6 @@ packages:
     resolution: {integrity: sha512-ASRY5QhDk7FK+XrQtQyvhpDKanLluEEQtWl/J7Lxuf/b+i8RYh997QeXvL85xitrmRKVlx9c7eTrcRdq2GS4eA==}
     engines: {node: '>=10'}
 
-  drange@1.1.1:
-    resolution: {integrity: sha512-pYxfDYpued//QpnLIm4Avk7rsNtAtQkUES2cwAYSvD/wd2pKD71gN2Ebj3e7klzXwjocvE8c5vx/1fxwpqmSxA==}
-    engines: {node: '>=4'}
-
   duplexer3@0.1.5:
     resolution: {integrity: sha512-1A8za6ws41LQgv9HrE/66jyC5yuSjQ3L/KOpFtoBilsAK2iA2wuS5rTt1OCzIvtS2V7nVmedsUU+DGRcjBmOYA==}
 
@@ -5393,12 +5376,6 @@ packages:
   orchid-core@0.19.6:
     resolution: {integrity: sha512-/vp5kL1WLFspAvZRMNKTCEPTkYQCNIN+sRGkXNj/w56EYGuJHgZjfNGfWdNLP9xfDORt4wmKo22iw5zl0oBAPQ==}
 
-  orchid-orm-schema-to-zod@0.8.32:
-    resolution: {integrity: sha512-gBCRwa8fPzSU+7SA9JffU8jbkGhWFQvz/WvTCWMZBf4rZCrjUseO0gCvnZvriqdfk9x+otUJarhWHSkygwO0QA==}
-
-  orchid-orm-test-factory@0.7.32:
-    resolution: {integrity: sha512-+y+UdsQYRTJb0T2Ew09JeE6LXKIJIAIQCff33af2kW/tEd/J72ZDYNe8djaB51MlTCfxJ1T1SuY6uTYuVhr3JA==}
-
   orchid-orm@1.34.4:
     resolution: {integrity: sha512-qpZrvI5BSmE2Q7QbICwtlcBqbgTr0Qu2g99XK9Sk47jkn+prTDEevU5qGLfd7T6qVUDvOQCeIBMa47ChZSc8IA==}
     peerDependencies:
@@ -6170,10 +6147,6 @@ packages:
   rake-db@2.22.22:
     resolution: {integrity: sha512-TYfX448lOW7FD7bckfEvk5a9jbgv2ia8I7JmGNvkadJZxV9AcxpMLyFP2PDyeIEqCh/rSMeyhtWafACqeYFdIg==}
 
-  randexp@0.5.3:
-    resolution: {integrity: sha512-U+5l2KrcMNOUPYvazA3h5ekF80FHTUG+87SEAmHZmolh1M+i/WyTCxVzmi+tidIa1tM4BSe8g2Y/D3loWDjj+w==}
-    engines: {node: '>=4'}
-
   randomatic@3.1.1:
     resolution: {integrity: sha512-TuDE5KxZ0J461RVjrJZCJc+J+zCkTb1MbH9AQUq68sMhOMcy9jLcb3BrZKgp9q9Ncltdg4QVqWrH02W2EFFVYw==}
     engines: {node: '>= 0.10.0'}
@@ -6376,10 +6349,6 @@ packages:
   restore-cursor@5.1.0:
     resolution: {integrity: sha512-oMA2dcrw6u0YfxJQXm342bFKX/E4sG9rbTzO9ptUcR/e8A33cHuvStiYOwH7fszkZlZ1z/ta9AAoPk2F4qIOHA==}
     engines: {node: '>=18'}
-
-  ret@0.2.2:
-    resolution: {integrity: sha512-M0b3YWQs7R3Z917WRQy1HHA7Ba7D8hvZg6UE5mLykJxQVE2ju0IXbGlaHPPlkY+WN7wFP+wUMXmBFA0aV6vYGQ==}
-    engines: {node: '>=4'}
 
   retry@0.13.1:
     resolution: {integrity: sha512-XQBQ3I8W1Cge0Seh+6gjj03LbmRFWuoszgK9ooCpwYIrhhoO80pfq4cUkU5DkknwfOfFteRwlZ56PYOGYyFWdg==}
@@ -7485,12 +7454,6 @@ snapshots:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
-
-  '@anatine/zod-mock@3.13.4(@faker-js/faker@8.4.1)(zod@3.23.8)':
-    dependencies:
-      '@faker-js/faker': 8.4.1
-      randexp: 0.5.3
-      zod: 3.23.8
 
   '@augment-vir/common@23.4.0':
     dependencies:
@@ -8921,8 +8884,6 @@ snapshots:
       - supports-color
 
   '@eslint/js@8.57.0': {}
-
-  '@faker-js/faker@8.4.1': {}
 
   '@humanwhocodes/config-array@0.11.14':
     dependencies:
@@ -11866,8 +11827,6 @@ snapshots:
       p-event: 2.3.1
       pify: 4.0.1
 
-  drange@1.1.1: {}
-
   duplexer3@0.1.5: {}
 
   eastasianwidth@0.2.0: {}
@@ -14236,25 +14195,6 @@ snapshots:
 
   orchid-core@0.19.6: {}
 
-  orchid-orm-schema-to-zod@0.8.32:
-    dependencies:
-      orchid-core: 0.19.6
-      pqb: 0.38.3
-      zod: 3.23.8
-    transitivePeerDependencies:
-      - pg-native
-
-  orchid-orm-test-factory@0.7.32:
-    dependencies:
-      '@anatine/zod-mock': 3.13.4(@faker-js/faker@8.4.1)(zod@3.23.8)
-      '@faker-js/faker': 8.4.1
-      orchid-core: 0.19.6
-      orchid-orm-schema-to-zod: 0.8.32
-      pqb: 0.38.3
-      zod: 3.23.8
-    transitivePeerDependencies:
-      - pg-native
-
   orchid-orm@1.34.4(typescript@5.5.4):
     dependencies:
       inflection: 3.0.0
@@ -14918,11 +14858,6 @@ snapshots:
     transitivePeerDependencies:
       - pg-native
 
-  randexp@0.5.3:
-    dependencies:
-      drange: 1.1.1
-      ret: 0.2.2
-
   randomatic@3.1.1:
     dependencies:
       is-number: 4.0.0
@@ -15222,8 +15157,6 @@ snapshots:
     dependencies:
       onetime: 7.0.0
       signal-exit: 4.1.0
-
-  ret@0.2.2: {}
 
   retry@0.13.1: {}
 
