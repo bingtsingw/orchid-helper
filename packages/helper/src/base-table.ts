@@ -30,11 +30,7 @@ export const BaseTable = createBaseTable({
     ...t,
 
     // Extend built-in methods
-    xEnum: <T extends Record<any, any>>(_: T) =>
-      t
-        .string()
-        .encode((v: T[keyof T]) => v)
-        .parse((v) => v as unknown as T[keyof T]),
+    xEnum: <T extends Record<any, any>>(_: T) => t.string().asType((t) => t<T[keyof T]>()),
     xJsonText: () =>
       t.jsonText().encode((v: Record<string, any> | any[]) => {
         if (typeof v !== 'object') throw new Error('Invalid value for JSON column');
