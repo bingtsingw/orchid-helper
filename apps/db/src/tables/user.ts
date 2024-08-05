@@ -1,4 +1,5 @@
 import { BaseTable } from '@bingtsingw/orchid-helper';
+import { TablePost } from './post';
 
 export class TableUser extends BaseTable {
   public override readonly table = 'user';
@@ -26,4 +27,12 @@ export class TableUser extends BaseTable {
       t.boolean(),
     ),
   }));
+
+  public relations = {
+    posts: this.hasMany(() => TablePost, {
+      required: true,
+      columns: ['id'],
+      references: ['userId'],
+    }),
+  };
 }
