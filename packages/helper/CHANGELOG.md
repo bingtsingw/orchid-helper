@@ -1,5 +1,11 @@
 # @bingtsingw/orchid-helper
 
+## 0.4.0
+
+### Minor Changes
+
+- [`1706232`](https://github.com/bingtsingw/orchid-helper/commit/1706232794b915dba02a5e25998c242fca60ae25) Thanks [@bingtsingw](https://github.com/bingtsingw)! - fix xEnum type
+
 ## 0.3.0
 
 ### Minor Changes
