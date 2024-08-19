@@ -1,5 +1,11 @@
 # @bingtsingw/orchid-helper
 
+## 0.5.0
+
+### Minor Changes
+
+- upgrade orchid-orm
+
 ## 0.4.0
 
 ### Minor Changes
