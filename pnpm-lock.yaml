@@ -33,8 +33,8 @@ importers:
         specifier: ^5.18.0
         version: 5.18.0(prisma@5.18.0)
       date-fns:
-        specifier: ^3.6.0
-        version: 3.6.0
+        specifier: ^4.1.0
+        version: 4.1.0
       orchid-orm:
         specifier: ^1.35.0
         version: 1.35.0(typescript@5.8.3)
@@ -3432,8 +3432,8 @@ packages:
   dataloader@1.4.0:
     resolution: {integrity: sha512-68s5jYdlvasItOJnCuI2Q9s4q98g0pCyL3HrcKJu8KNugUl8ahgmZYg38ysLTgQjjXX3H8CJLkAvWrclWfcalw==}
 
-  date-fns@3.6.0:
-    resolution: {integrity: sha512-fRHTG8g/Gif+kSh50gaGEdToemgfj74aRX3swtiouboip5JDLAyDE9F11nHMIcvOaXeOC6D7SpNhi7uFyB7Uww==}
+  date-fns@4.1.0:
+    resolution: {integrity: sha512-Ukq0owbQXxa/U3EGtsdVBkR1w7KOQ5gIBqdH2hkvknzZPYvBxb/aa6E8L7tmjFtkwZBu3UXBbjIgPo/Ez4xaNg==}
 
   dateformat@2.2.0:
     resolution: {integrity: sha512-GODcnWq3YGoTnygPfi02ygEiRxqUxpJwuRHjdhJYuxpcZmDq4rjBiXYmbCCzStxo176ixfLT6i4NPwQooRySnw==}
@@ -5870,6 +5870,7 @@ packages:
 
   orchid-core@0.19.7:
     resolution: {integrity: sha512-V+UH29E5e18sQt48kiFi34NL7o8kzVaMK8Zit2/7f3Ykia6KJvJuOgUpiAGALWdNuvEicNKwn2wzIm0CxaLlmw==}
+    deprecated: orchid-core was merged into pqb
 
   orchid-orm@1.35.0:
     resolution: {integrity: sha512-Z38zj9EEL5m2Q+WZs/vRFjFTw7V5FVpzWT9KDrFBQ5l8pW8bdnn6H19k3LkHyfUiEmomNs/cKF2ieh/MrCLGFA==}
@@ -12455,7 +12456,7 @@ snapshots:
 
   dataloader@1.4.0: {}
 
-  date-fns@3.6.0: {}
+  date-fns@4.1.0: {}
 
   dateformat@2.2.0: {}
 
