@@ -1,12 +1,26 @@
-import { createId } from '@paralleldrive/cuid2';
+import { createId, init } from '@paralleldrive/cuid2';
 import type { DefaultColumnTypes, DefaultSchemaConfig } from 'orchid-orm';
 import { createBaseTable } from 'orchid-orm';
+import { v7 as uuidv7 } from 'uuid';
+import { uuid25encode } from './uuid25';
 
 const cuid = (t: DefaultColumnTypes<DefaultSchemaConfig>) => () =>
   t
     .string(36)
     .primaryKey()
     .default(() => createId());
+
+const uuid25 = (t: DefaultColumnTypes<DefaultSchemaConfig>) => () =>
+  t
+    .string(25)
+    .primaryKey()
+    .default(() => uuid25encode(uuidv7()));
+
+const short = (t: DefaultColumnTypes<DefaultSchemaConfig>) => () =>
+  t
+    .string(6)
+    .primaryKey()
+    .default(() => init({ length: 6 })());
 
 const createdAt = (t: DefaultColumnTypes<DefaultSchemaConfig>) => () =>
   t
@@ -45,9 +59,11 @@ export const BaseTable = createBaseTable({
     deletedAt: deletedAt(t),
     cuid: cuid(t),
 
-    baseColumns: () => {
+    baseColumns: (option?: { strategy: 'uuid25' | 'cuid2' | 'short' }) => {
+      const id = option?.strategy === 'cuid2' ? cuid(t)() : option?.strategy === 'short' ? short(t)() : uuid25(t)();
+
       return {
-        id: cuid(t)(),
+        id,
         createdAt: createdAt(t)(),
         updatedAt: updatedAt(t)(),
         deletedAt: deletedAt(t)(),

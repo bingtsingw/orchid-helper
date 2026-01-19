@@ -21,7 +21,9 @@
   },
   "devDependencies": {
     "@paralleldrive/cuid2": "^2.2.2",
-    "orchid-orm": "^1.35.0"
+    "@types/uuid": "^10.0.0",
+    "orchid-orm": "^1.35.0",
+    "uuid": "^11.0.3"
   },
   "peerDependencies": {
     "@paralleldrive/cuid2": "^2.2.2",
