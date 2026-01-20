@@ -24,13 +24,14 @@
   "eslintConfig": {
     "extends": "@xstools-dev/eslint-config/base"
   },
+  "dependencies": {
+    "@paralleldrive/cuid2": "^3.0.6"
+  },
   "devDependencies": {
-    "@paralleldrive/cuid2": "^2.2.2",
     "orchid-orm": "^1.35.0"
   },
   "peerDependencies": {
-    "@paralleldrive/cuid2": "^2.2.2",
-    "orchid-orm": "^1.34.5"
+    "orchid-orm": "^1.35.0"
   },
   "publishConfig": {
     "access": "public",

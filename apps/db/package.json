@@ -14,9 +14,9 @@
   },
   "devDependencies": {
     "@bingtsingw/orchid-helper": "workspace:^",
-    "@paralleldrive/cuid2": "^2.2.2",
-    "date-fns": "^3.6.0",
-    "orchid-orm": "^1.35.0",
+    "@paralleldrive/cuid2": "^3.0.6",
+    "date-fns": "^4.1.0",
+    "orchid-orm": "1.35.0",
     "prisma": "^7.2.0"
   }
 }

@@ -19,6 +19,12 @@ export class TableUser extends BaseTable {
 
 ## How to test
 
-1. Go to `apps/db` folder
-2. Run `npm run db:test-rebuild` to setup test database
-3. Run `npm run db:test` to run database test
+```shell
+# 1. build
+pnpm run check-publish
+# 2. go to apps/db folder
+cd apps/db
+# 3. run db test
+pnpm run db:test-rebuild
+pnpm run db:test
+```

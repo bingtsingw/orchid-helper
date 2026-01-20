@@ -21,7 +21,7 @@ jobs:
           POSTGRES_PASSWORD: password
           POSTGRES_DB: orchid-helper-test
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: bingtsingw/composite-actions/pnpm-install@v2
       - run: pnpm run test
       - run: |
