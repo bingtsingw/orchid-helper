@@ -45,6 +45,10 @@ model Post {
   content  String? @db.Text
   location Json    @default("{}") @db.JsonB
 
+  p1 String? @db.VarChar
+  p2 String? @db.VarChar
+  p3 Json    @default("{}") @db.JsonB
+
   user   User   @relation(fields: [userId], references: [id])
   userId String @map("user_id") @db.VarChar
 

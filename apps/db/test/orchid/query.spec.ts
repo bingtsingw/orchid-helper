@@ -38,6 +38,9 @@ describe('query', () => {
     expect(async () => db.user.where({ phone: 'wrong' }).find(user.id)).toThrow('Record is not found');
     expect(await db.user.find(user.id).where({ phone: 'correct' })).toMatchObject({ id: user.id });
     expect(await db.user.where({ phone: 'correct' }).find(user.id)).toMatchObject({ id: user.id });
+    expect(async () => db.user.find(undefined!).where({ phone: 'correct' })).toThrow(
+      'undefined is not allowed in the find method',
+    );
 
     expect(async () => db.user.find(user.id).where({ phone: 'wrong' }).get('id')).toThrow('Record is not found');
     expect(async () => db.user.where({ phone: 'wrong' }).find(user.id).get('id')).toThrow('Record is not found');
@@ -46,11 +49,17 @@ describe('query', () => {
     expect(await db.user.where({ phone: 'correct' }).where({ id: user.id }).select('id').take()).toEqual({
       id: user.id,
     });
+    expect(async () => db.user.find(undefined!).where({ phone: 'correct' }).get('id')).toThrow(
+      'undefined is not allowed in the find method',
+    );
 
     expect(await db.user.find(user.id).where({ phone: 'wrong' }).getOptional('id')).toBeUndefined();
     expect(await db.user.where({ phone: 'wrong' }).find(user.id).getOptional('id')).toBeUndefined();
     expect(await db.user.where({ phone: 'wrong' }).find(user.id).takeOptional()).toBeUndefined();
     expect(await db.user.where({ phone: 'wrong' }).find(user.id).select('id').takeOptional()).toBeUndefined();
+    expect(async () => db.user.find(undefined!).where({ phone: 'correct' }).getOptional('id')).toThrow(
+      'undefined is not allowed in the find method',
+    );
   });
 
   /**
@@ -69,6 +78,7 @@ describe('query', () => {
     expect(await db.user.findBy({ id: 'x' }).getOptional('id')).toBeUndefined();
     expect(async () => db.user.findByOptional({ id: 'x' }).get('id')).toThrow('Record is not found');
     expect(await db.user.findByOptional({ id: 'x' })).toBeUndefined();
+    expect(await db.user.findByOptional({ id: undefined! }).get('id')).toBe(user.id);
   });
 
   test('take vs takeOptional', async () => {
@@ -84,6 +94,8 @@ describe('query', () => {
     expect(await db.user.where({ phone: 'correct' }).select('id').takeOptional()).toMatchObject({
       id: user.id,
     });
+
+    expect(await db.user.where({ phone: undefined! }).select('id').takeOptional()).toMatchObject({ id: user.id });
   });
 
   /**

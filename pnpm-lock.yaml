@@ -33,8 +33,8 @@ importers:
         specifier: ^4.1.0
         version: 4.1.0
       orchid-orm:
-        specifier: 1.35.0
-        version: 1.35.0(typescript@5.8.3)
+        specifier: 1.36.0
+        version: 1.36.0(typescript@5.8.3)
       prisma:
         specifier: ^7.2.0
         version: 7.2.0(typescript@5.8.3)
@@ -46,8 +46,8 @@ importers:
         version: 3.0.6
     devDependencies:
       orchid-orm:
-        specifier: ^1.35.0
-        version: 1.35.0(typescript@5.8.3)
+        specifier: ^1.36.0
+        version: 1.36.0(typescript@5.8.3)
 
 packages:
 
@@ -2186,9 +2186,6 @@ packages:
 
   '@types/node@24.10.9':
     resolution: {integrity: sha512-ne4A0IpG3+2ETuREInjPNhUGis1SFjv1d5asp8MzEAGtOZeTeHVDOYqOgqfhvseqg/iXty2hjBf1zAOb7RNiNw==}
-
-  '@types/node@25.0.9':
-    resolution: {integrity: sha512-/rpCXHlCWeqClNBwUhDcusJxXYDjZTyE8v5oTO7WbL8eij2nKhUeU89/6xgjU7N4/Vh3He0BtyhJdQbDyhiXAw==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -6001,12 +5998,12 @@ packages:
     resolution: {integrity: sha512-m0pg2zscbYgWbqRR6ABga5c3sZdEon7bSgjnlXC64kxtxLOyjRcbbUkLj7HFyy/FTD+P2xdBWu8snGhYI0jc4A==}
     engines: {node: '>=20'}
 
-  orchid-core@0.19.7:
-    resolution: {integrity: sha512-V+UH29E5e18sQt48kiFi34NL7o8kzVaMK8Zit2/7f3Ykia6KJvJuOgUpiAGALWdNuvEicNKwn2wzIm0CxaLlmw==}
+  orchid-core@0.20.0:
+    resolution: {integrity: sha512-tu7JKtJ0iH0kj9fjZuFc0mQyv1PsYla8h/2+c3ufZWrBtD98+XJ4Js41MXsLak6NRqAsBNZ6saq/IB5THH5gAg==}
     deprecated: orchid-core was merged into pqb
 
-  orchid-orm@1.35.0:
-    resolution: {integrity: sha512-Z38zj9EEL5m2Q+WZs/vRFjFTw7V5FVpzWT9KDrFBQ5l8pW8bdnn6H19k3LkHyfUiEmomNs/cKF2ieh/MrCLGFA==}
+  orchid-orm@1.36.0:
+    resolution: {integrity: sha512-2g5YAcAPTdGFc3UHdKA8tVkz17OxISkHT3epBx8fv0D2FkEpPLProbep1o6acm4ZGxD9M1ucWW++Q/urwNuz+Q==}
     peerDependencies:
       typescript: '*'
 
@@ -6547,8 +6544,8 @@ packages:
     resolution: {integrity: sha512-Jtc2612XINuBjIl/QTWsV5UvE8UHuNblcO3vVADSrKsrc6RqGX6lOW1cEo3CM2v0XG4Nat8nI+YM7/f26VxXLw==}
     engines: {node: '>=12'}
 
-  pqb@0.39.0:
-    resolution: {integrity: sha512-ARGGHX7WfGU9Y5t7Y9vlnDruW/r+HSECHcsLQ+VG1ySCPWNQUio8nBIgt3CV4wg1JqILhQZE1bHcWZaeqSe5/w==}
+  pqb@0.41.0:
+    resolution: {integrity: sha512-YOcidk+txjds2Q5At3MU5OQweLGPE+0jfD5z0WUMw7BGJSEiJm/PU3KYIxPNq+FNkwf49TomDjmKfYxF2rbjfA==}
 
   prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
@@ -6765,8 +6762,8 @@ packages:
   queue@6.0.2:
     resolution: {integrity: sha512-iHZWu+q3IdFZFX36ro/lKBkSvfkztY5Y7HMiPlOUjhupPcG2JMfst2KKEpu5XndviX/3UhFbRngUPNKtgvtZiA==}
 
-  rake-db@2.22.28:
-    resolution: {integrity: sha512-CkcjD8oElVlz6JSc1PhSGEunAkB3MPrQg/cJebCR07joCyIcXEBack6nVAXL8JW3LVxqlcJbE6C6X0bHcBb4cg==}
+  rake-db@2.23.0:
+    resolution: {integrity: sha512-deZR5omuP0CBD1WXLoNPGSSJV25FaLCh7CKu2HC/+sp61R6/Zd3iGdsgN9VtrqYJfrhkzCvjUYvbWtYDlooVKQ==}
 
   randomatic@3.1.1:
     resolution: {integrity: sha512-TuDE5KxZ0J461RVjrJZCJc+J+zCkTb1MbH9AQUq68sMhOMcy9jLcb3BrZKgp9q9Ncltdg4QVqWrH02W2EFFVYw==}
@@ -10757,10 +10754,6 @@ snapshots:
     dependencies:
       undici-types: 7.16.0
 
-  '@types/node@25.0.9':
-    dependencies:
-      undici-types: 7.16.0
-
   '@types/normalize-package-data@2.4.4': {}
 
   '@types/parse-path@7.1.0':
@@ -10769,7 +10762,7 @@ snapshots:
 
   '@types/pg@8.16.0':
     dependencies:
-      '@types/node': 25.0.9
+      '@types/node': 24.10.9
       pg-protocol: 1.11.0
       pg-types: 2.2.0
 
@@ -15589,15 +15582,15 @@ snapshots:
       string-width: 8.1.0
       strip-ansi: 7.1.2
 
-  orchid-core@0.19.7: {}
+  orchid-core@0.20.0: {}
 
-  orchid-orm@1.35.0(typescript@5.8.3):
+  orchid-orm@1.36.0(typescript@5.8.3):
     dependencies:
       inflection: 3.0.0
-      orchid-core: 0.19.7
-      pqb: 0.39.0
+      orchid-core: 0.20.0
+      pqb: 0.41.0
       prompts: 2.4.2
-      rake-db: 2.22.28
+      rake-db: 2.23.0
       typescript: 5.8.3
     transitivePeerDependencies:
       - pg-native
@@ -16072,10 +16065,10 @@ snapshots:
 
   postgres@3.4.7: {}
 
-  pqb@0.39.0:
+  pqb@0.41.0:
     dependencies:
       '@types/pg': 8.16.0
-      orchid-core: 0.19.7
+      orchid-core: 0.20.0
       pg: 8.17.1
     transitivePeerDependencies:
       - pg-native
@@ -16241,10 +16234,10 @@ snapshots:
     dependencies:
       inherits: 2.0.4
 
-  rake-db@2.22.28:
+  rake-db@2.23.0:
     dependencies:
-      orchid-core: 0.19.7
-      pqb: 0.39.0
+      orchid-core: 0.20.0
+      pqb: 0.41.0
       prompts: 2.4.2
     transitivePeerDependencies:
       - pg-native

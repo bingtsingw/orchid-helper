@@ -64,8 +64,17 @@ describe('BaseTable', () => {
     expect(await query).toMatchObject({ id: user.id });
 
     await query.includeDeleted().update({ deletedAt: t1.toISOString() });
+    expect(async () => query).toThrow('Record is not found');
     expectNotCloseToDate(await query.includeDeleted().get('deletedAt'), now);
     expectCloseToDate(await query.includeDeleted().get('deletedAt'), t1);
+  });
+
+  test('json', async () => {
+    const user = await db.user.create({ profile: { name: 'test' } });
+    const query = db.user.find(user.id);
+
+    await query.update({ profile: { name: 'test2' } });
+    expect(await query.get('profile')).toEqual({ name: 'test2' });
   });
 
   test('xEnum', async () => {
@@ -116,5 +125,26 @@ describe('BaseTable', () => {
 
     await query.update({ publishAt: t1.toISOString() });
     expectCloseToDate(await query.get('publishAt'), t1);
+  });
+
+  test('parse', async () => {
+    const user = await db.user.create({});
+    const post = await db.post.create({ userId: user.id });
+    const query = db.post.find(post.id);
+
+    /**
+     * 在1.36.0版本之前, parse会处理null, 这个测试可以pass.
+     * 在1.36.0版本之后, parse不会处理null, 所以`.parse((v) => v ?? 'xxx')`这个写法没有意义
+     */
+    // expect(post.p1).toBe('default p1');
+    expect(post.p1).toBe(null);
+
+    expect(post.p2).toBe('default p2');
+
+    // parse仍然会解析`{}`
+    expect(post.p3).toEqual({ x: 'x' });
+
+    await query.update({ p2: 'p2' });
+    expect(await query.get('p2')).toBe('try to cover parseNull');
   });
 });
