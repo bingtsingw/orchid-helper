@@ -4,7 +4,7 @@ import { TableUser } from './user';
 
 export const db = orchidORM(
   {
-    log: false,
+    log: process.env['DATABASE_LOG'] === 'true',
     databaseURL: process.env['DATABASE_URL'],
   },
   {

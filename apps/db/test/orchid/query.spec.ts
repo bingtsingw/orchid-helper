@@ -100,16 +100,45 @@ describe('query', () => {
 
   /**
    * 文档: https://orchid-orm.netlify.app/guide/create-update-delete.html#orcreate
-   * 源码: https://github.com/romeerez/orchid-orm/blob/main/packages/qb/pqb/src/queryMethods/upsertOrCreate.ts
+   * 源码: https://github.com/romeerez/orchid-orm/blob/main/packages/pqb/src/query/basic-features/mutate/or-create.ts
    *
-   * 查看源码可以知道`orCreate`其实是在`query`之后执行的, 通过返回的`row`的`count`来判断之否执行:
+   * `orCreate`是在`query`之后执行的, 通过返回的`row`的`count`来判断之否执行:
    *  a. 如果`count`为0, 则执行`create`
    *  b. 如果`count`为1, 不进行任何操作
    *  b. 如果`count`大于1, 报错
    */
   test('orCreate', async () => {
-    // 由于`orCreate`是在`query`之后执行的, 所以它不影响`query`
-    const sql = 'SELECT "user"."id" FROM "user" WHERE ("user"."id" = $1) AND ("user"."deleted_at" IS NULL) LIMIT 1';
+    // 测试返回值, `get`需要在`orCreate`之后, `select`需要在`orCreate`之前.
+    const r1 = await db.user.where({ password: '1' }).take().orCreate({ password: '1' }).get('id');
+    const r2 = await db.user.where({ password: '1' }).take().select('id').orCreate({ password: '1' });
+    const r3 = await db.user.find(r1).select('id').orCreate({ password: '1' });
+    const r4 = await db.user.find(r1).orCreate({ password: '1' }).get('id');
+    expect(await db.user.count()).toBe(1);
+    expect(r1).toEqual(r2.id);
+    expect(r1).toEqual(r3.id);
+    expect(r1).toEqual(r4);
+
+    /**
+     * 1. `take/find/findBy`在`orCreate`语句中不生效, `orCreate`前面的查询只有`where`, 但是虽然运行时不生效, 编译时却靠他来做类型检查.
+     * 2. `where`的结果若`count > 1`, 会抛出运行时错误.
+     */
+
+    // @ts-expect-error
+    await db.user.where({ password: '2' }).orCreate({ password: '2' });
+    expect(await db.user.count()).toBe(2);
+
+    // @ts-expect-error
+    expect(async () => db.user.where({}).orCreate({ password: '3' })).toThrow(
+      'Only one row was expected to find, found 2 rows.',
+    );
+    expect(async () => db.user.where({}).take().orCreate({ password: '3' })).toThrow(
+      'Only one row was expected to find, found 2 rows.',
+    );
+    expect(async () => db.user.findBy({ phone: null }).take().orCreate({ password: '3' })).toThrow(
+      'Only one row was expected to find, found 2 rows.',
+    );
+
+    const sql = 'SELECT "user"."id" FROM "user" WHERE ("user"."id" = $1) AND ("user"."deleted_at" IS NULL)';
     expect(db.user.where({ id: '' }).take().orCreate({ password: '' }).select('id').toSQL()).toMatchObject({
       text: sql,
     });
@@ -122,36 +151,14 @@ describe('query', () => {
     expect(db.user.find('').select('id').orCreate({ password: '' }).toSQL()).toMatchObject({
       text: sql,
     });
-
-    // 测试返回值, `get`需要在`orCreate`之后, `select`需要在`orCreate`之前.
-    const r1 = await db.user.where({ password: '1' }).take().orCreate({ password: '1' }).get('id');
-    const r2 = await db.user.where({ password: '1' }).take().select('id').orCreate({ password: '1' });
-    const r3 = await db.user.find(r1).select('id').orCreate({ password: '1' });
-    const r4 = await db.user.find(r1).orCreate({ password: '1' }).get('id');
-    expect(await db.user.count()).toBe(1);
-    expect(r1).toEqual(r2.id);
-    expect(r1).toEqual(r3.id);
-    expect(r1).toEqual(r4);
-  });
-
-  /**
-   * 测试非法使用`where().orCreate()`
-   *
-   * `.where().orCreate()`会报编译时TS错误, 但是不会报运行时错误,
-   * 并且在运行时添加了`returnType = 'one'`的逻辑, 相当于`where().take().orCreate()`
-   */
-  test('orCreate with where', async () => {
     // @ts-expect-error
-    await db.user.where({ password: '1' }).orCreate({ password: '1' });
+    expect(db.user.where({ id: '' }).orCreate({ password: '' }).select('id').toSQL()).toMatchObject({
+      text: sql,
+    });
     // @ts-expect-error
-    await db.user.where({ password: '2' }).orCreate({ password: '2' });
-
-    expect(await db.user.count()).toBe(2);
-
-    // @ts-expect-error
-    await db.user.where({}).orCreate({ password: '3' });
-
-    expect(await db.user.count()).toBe(2);
+    expect(db.user.where({ id: '' }).select('id').orCreate({ password: '' }).toSQL()).toMatchObject({
+      text: sql,
+    });
   });
 
   /**

@@ -22,7 +22,7 @@ export class TablePost extends BaseTable {
       .nullable(),
     p2: t
       .string()
-      .parseNull((v) => v ?? 'default p2')
+      .parseNull(() => 'default p2')
       .parse(() => 'try to cover parseNull')
       .nullable(),
     p3: t
