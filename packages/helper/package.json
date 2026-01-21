@@ -28,7 +28,7 @@
     "@paralleldrive/cuid2": "^3.0.6"
   },
   "devDependencies": {
-    "orchid-orm": "^1.58.10"
+    "orchid-orm": "^1.59.5"
   },
   "peerDependencies": {
     "orchid-orm": "^1.58.10"
