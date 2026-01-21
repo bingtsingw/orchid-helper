@@ -19,12 +19,12 @@ export class TableUser extends BaseTable {
   }));
 
   public computed = this.setComputed((q) => ({
-    profileName: q.sql`COALESCE(${q.column('profile')} ->> 'name', '')`.type((t) => t.string()),
-    profileAvatar: q.sql`COALESCE(${q.column('profile')} ->> 'avatar', '')`.type((t) => t.string()),
-    profileBio: q.sql`COALESCE(${q.column('profile')} ->> 'bio', '')`.type((t) => t.string()),
-    profileWechatId: q.sql`COALESCE(${q.column('profile')} ->> 'wechatId', '')`.type((t) => t.string()),
-    verificationVerified: q.sql`COALESCE((${q.column('verification')} ->> 'verified')::boolean, false)`.type((t) =>
-      t.boolean(),
+    profileName: BaseTable.sql`COALESCE(${q.column('profile')} ->> 'name', '')`.type((t) => t.string()),
+    profileAvatar: BaseTable.sql`COALESCE(${q.column('profile')} ->> 'avatar', '')`.type((t) => t.string()),
+    profileBio: BaseTable.sql`COALESCE(${q.column('profile')} ->> 'bio', '')`.type((t) => t.string()),
+    profileWechatId: BaseTable.sql`COALESCE(${q.column('profile')} ->> 'wechatId', '')`.type((t) => t.string()),
+    verificationVerified: BaseTable.sql`COALESCE((${q.column('verification')} ->> 'verified')::boolean, false)`.type(
+      (t) => t.boolean(),
     ),
   }));
 
