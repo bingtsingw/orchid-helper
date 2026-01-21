@@ -15,7 +15,6 @@ export class TableUser extends BaseTable {
     profile: t.json().hasDefault(),
     role: t.json<string[]>().hasDefault(),
     verification: t.json().hasDefault(),
-    active: t.boolean().hasDefault(),
   }));
 
   public computed = this.setComputed((q) => ({

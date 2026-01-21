@@ -209,13 +209,13 @@ describe('query', () => {
    * `upsert`中使用到了`update`的逻辑, 所以`take`不生效.
    */
   test('upsert with take', async () => {
-    await db.user.create({ active: true });
-    await db.user.create({ active: true });
+    await db.user.create({ password: '1' });
+    await db.user.create({ password: '1' });
 
     expect(
       async () =>
         await db.user
-          .where({ active: true })
+          .where({ password: '1' })
           .take()
           .upsert({
             create: { password: '2' },
@@ -271,15 +271,15 @@ describe('query', () => {
    * `LIMIT`和`DELETE`无法一起使用, 所以`.take().delete()`中的`take()`不生效.
    */
   test('delete', async () => {
-    await db.user.create({ active: true });
-    await db.user.create({ active: true });
-    await db.user.where({ active: true }).delete();
+    await db.user.create({ password: '1' });
+    await db.user.create({ password: '1' });
+    await db.user.where({ password: '1' }).delete();
     expect(await db.user.count()).toBe(0);
 
     // !warning `.take()`对`delete`无效
-    await db.user.create({ active: true });
-    await db.user.create({ active: true });
-    await db.user.where({ active: true }).take().delete();
+    await db.user.create({ password: '1' });
+    await db.user.create({ password: '1' });
+    await db.user.where({ password: '1' }).take().delete();
     expect(await db.user.count()).toBe(0);
   });
 });

@@ -25,7 +25,6 @@ model User {
   profile      Json    @default("{}") @db.JsonB
   role         Json    @default("[]") @db.JsonB
   verification Json    @default("{}") @db.JsonB
-  active       Boolean @default(false) @db.Boolean
 
   posts Post[]
 
