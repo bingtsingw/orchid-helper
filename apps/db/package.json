@@ -16,7 +16,7 @@
     "@bingtsingw/orchid-helper": "workspace:^",
     "@paralleldrive/cuid2": "^3.0.6",
     "date-fns": "^4.1.0",
-    "orchid-orm": "1.42.0",
+    "orchid-orm": "1.54.1",
     "prisma": "^7.2.0"
   }
 }

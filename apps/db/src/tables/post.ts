@@ -33,6 +33,27 @@ export class TablePost extends BaseTable {
       }))
       .hasDefault(),
 
+    e1: t
+      .string()
+      .encode(() => 'default e1')
+      .nullable(),
+    e2: t
+      .string()
+      .default(() => 'default e2')
+      .nullable(),
+    e3: t
+      .string()
+      .encode(() => 'try to cover parseNull')
+      .default(() => 'default e3')
+      .nullable(),
+    e4: t
+      .json<Record<string, any>>()
+      .encode((v) => ({
+        ...(v as any),
+        x: 'x',
+      }))
+      .hasDefault(),
+
     userId: t.string(),
   }));
 

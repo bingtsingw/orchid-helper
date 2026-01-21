@@ -113,10 +113,13 @@ describe('query', () => {
     const r2 = await db.user.where({ password: '1' }).take().select('id').orCreate({ password: '1' });
     const r3 = await db.user.find(r1).select('id').orCreate({ password: '1' });
     const r4 = await db.user.find(r1).orCreate({ password: '1' }).get('id');
+    const r5 = await db.user.find(r1).orCreate({ password: '1' }).select('id');
     expect(await db.user.count()).toBe(1);
     expect(r1).toEqual(r2.id);
     expect(r1).toEqual(r3.id);
     expect(r1).toEqual(r4);
+    // @ts-expect-error
+    expect(r5.id).toEqual(r1); // 注意r5的返回值类型为void, 但是实际是有返回的, 因为returnType的判断是在`orCreate`函数中检查`select`
 
     /**
      * 1. `take/find/findBy`在`orCreate`语句中不生效, `orCreate`前面的查询只有`where`, 但是虽然运行时不生效, 编译时却靠他来做类型检查.

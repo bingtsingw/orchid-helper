@@ -147,4 +147,24 @@ describe('BaseTable', () => {
     await query.update({ p2: 'p2' });
     expect(await query.get('p2')).toBe('try to cover parseNull');
   });
+
+  test('encode', async () => {
+    const user = await db.user.create({});
+    const post = await db.post.create({ userId: user.id });
+    const query = db.post.find(post.id);
+
+    // 注意e3和的值, 似乎是先调用了`default`, 再调用了`encode`
+    expect(post).toMatchObject({ e1: null, e2: 'default e2', e3: 'try to cover parseNull', e4: {} });
+
+    await query.update({ e1: null, e2: null, e3: null, e4: {} });
+    expect(post).toMatchObject({ e1: null, e2: 'default e2', e3: 'try to cover parseNull', e4: {} });
+
+    await query.update({ e1: 'x', e2: 'x', e3: 'x', e4: { a: 'a' } });
+    expect(await query).toMatchObject({
+      e1: 'default e1',
+      e2: 'x',
+      e3: 'try to cover parseNull',
+      e4: { a: 'a', x: 'x' },
+    });
+  });
 });
