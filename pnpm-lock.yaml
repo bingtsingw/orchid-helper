@@ -33,8 +33,11 @@ importers:
         specifier: ^4.1.0
         version: 4.1.0
       orchid-orm:
-        specifier: 1.54.1
-        version: 1.54.1(typescript@5.8.3)
+        specifier: 1.58.10
+        version: 1.58.10(pg@8.17.2)(postgres@3.4.7)(typescript@5.8.3)
+      pg:
+        specifier: ^8.17.2
+        version: 8.17.2
       prisma:
         specifier: ^7.2.0
         version: 7.2.0(typescript@5.8.3)
@@ -46,8 +49,8 @@ importers:
         version: 3.0.6
     devDependencies:
       orchid-orm:
-        specifier: ^1.54.1
-        version: 1.54.1(typescript@5.8.3)
+        specifier: ^1.58.10
+        version: 1.58.10(pg@8.17.2)(postgres@3.4.7)(typescript@5.8.3)
 
 packages:
 
@@ -5998,12 +6001,8 @@ packages:
     resolution: {integrity: sha512-m0pg2zscbYgWbqRR6ABga5c3sZdEon7bSgjnlXC64kxtxLOyjRcbbUkLj7HFyy/FTD+P2xdBWu8snGhYI0jc4A==}
     engines: {node: '>=20'}
 
-  orchid-core@0.27.2:
-    resolution: {integrity: sha512-V/hZf2CjuiiIs3In67LWfzAXOfYBNa4DjMXln0gl5j7Ql2yLqI2Lh18A2k4T0T7XD8zGurf5HWYwiB9ohc3vRQ==}
-    deprecated: orchid-core was merged into pqb
-
-  orchid-orm@1.54.1:
-    resolution: {integrity: sha512-FxeF1AjRUHFB6/lu9UGZzN8ClwNQkj+r02q/Q8MKx/pM3JvxW2eTGWpczOFlVYXYZSIvk8d49sP0s7pxQvn2sw==}
+  orchid-orm@1.58.10:
+    resolution: {integrity: sha512-fz54NVUTyjrQdvZoIJPPqSC8oa7jEEUHYwAU1B28Jb+w6BCjrS4Yv/ivRCbpjLEgUf3SmtxwckKWTqdnRvFdKw==}
     peerDependencies:
       typescript: '*'
 
@@ -6217,8 +6216,8 @@ packages:
   pg-cloudflare@1.3.0:
     resolution: {integrity: sha512-6lswVVSztmHiRtD6I8hw4qP/nDm1EJbKMRhf3HCYaqud7frGysPv7FYJ5noZQdhQtN2xJnimfMtvQq21pdbzyQ==}
 
-  pg-connection-string@2.10.0:
-    resolution: {integrity: sha512-ur/eoPKzDx2IjPaYyXS6Y8NSblxM7X64deV2ObV57vhjsWiwLvUD6meukAzogiOsu60GO8m/3Cb6FdJsWNjwXg==}
+  pg-connection-string@2.10.1:
+    resolution: {integrity: sha512-iNzslsoeSH2/gmDDKiyMqF64DATUCWj3YJ0wP14kqcsf2TUklwimd+66yYojKwZCA7h2yRNLGug71hCBA2a4sw==}
 
   pg-int8@1.0.1:
     resolution: {integrity: sha512-WCtabS6t3c8SkpDBUlb1kjOs7l66xsGdKpIPZsg4wR+B3+u9UAum2odSsF9tnvxg80h4ZxLWMy4pRjOsFIqQpw==}
@@ -6236,8 +6235,8 @@ packages:
     resolution: {integrity: sha512-qTAAlrEsl8s4OiEQY69wDvcMIdQN6wdz5ojQiOy6YRMuynxenON0O5oCpJI6lshc6scgAY8qvJ2On/p+CXY0GA==}
     engines: {node: '>=4'}
 
-  pg@8.17.1:
-    resolution: {integrity: sha512-EIR+jXdYNSMOrpRp7g6WgQr7SaZNZfS7IzZIO0oTNEeibq956JxeD15t3Jk3zZH0KH8DmOIx38qJfQenoE8bXQ==}
+  pg@8.17.2:
+    resolution: {integrity: sha512-vjbKdiBJRqzcYw1fNU5KuHyYvdJ1qpcQg1CeBrHFqV1pWgHeVR6j/+kX0E1AAXfyuLUGY1ICrN2ELKA/z2HWzw==}
     engines: {node: '>= 16.0.0'}
     peerDependencies:
       pg-native: '>=3.0.1'
@@ -6544,8 +6543,16 @@ packages:
     resolution: {integrity: sha512-Jtc2612XINuBjIl/QTWsV5UvE8UHuNblcO3vVADSrKsrc6RqGX6lOW1cEo3CM2v0XG4Nat8nI+YM7/f26VxXLw==}
     engines: {node: '>=12'}
 
-  pqb@0.54.3:
-    resolution: {integrity: sha512-oylzAiMZxyC2DjEIt7VMauh1lgPEGFQFXTYGAhcEVhwJUm/5aCvsN6GPj/ah2H9fVxquzGmsMfDtgtJELriMCg==}
+  pqb@0.57.7:
+    resolution: {integrity: sha512-DF+wtS18lgWY3Y1T6+Lf2fDgO6A/hu/Uhtvv474iCKRX7ppB6iE7lxVBzK/Lrrbep3iKrv94z6K2i6Zgp0gx2Q==}
+    peerDependencies:
+      pg: '>=8'
+      postgres: '>=3'
+    peerDependenciesMeta:
+      pg:
+        optional: true
+      postgres:
+        optional: true
 
   prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
@@ -6762,8 +6769,8 @@ packages:
   queue@6.0.2:
     resolution: {integrity: sha512-iHZWu+q3IdFZFX36ro/lKBkSvfkztY5Y7HMiPlOUjhupPcG2JMfst2KKEpu5XndviX/3UhFbRngUPNKtgvtZiA==}
 
-  rake-db@2.25.16:
-    resolution: {integrity: sha512-n/3d7fkZyKSle2ku8JQYCZC2B6SYubjm8qN+lewp2Fb0EoNf989cN9N0XKRlkHLuIlJfxzzjukC0+j/zvo9DIQ==}
+  rake-db@2.27.23:
+    resolution: {integrity: sha512-GaJkqFsAhOVONc/jv+IsuLX9Fp6C8NrmjE2yQl8ckKCDVKt0d3xkflWVEjB/kaLx8HgvkmbUCJqx74oMZSbYWw==}
 
   randomatic@3.1.1:
     resolution: {integrity: sha512-TuDE5KxZ0J461RVjrJZCJc+J+zCkTb1MbH9AQUq68sMhOMcy9jLcb3BrZKgp9q9Ncltdg4QVqWrH02W2EFFVYw==}
@@ -15582,18 +15589,16 @@ snapshots:
       string-width: 8.1.0
       strip-ansi: 7.1.2
 
-  orchid-core@0.27.2: {}
-
-  orchid-orm@1.54.1(typescript@5.8.3):
+  orchid-orm@1.58.10(pg@8.17.2)(postgres@3.4.7)(typescript@5.8.3):
     dependencies:
       inflection: 3.0.0
-      orchid-core: 0.27.2
-      pqb: 0.54.3
+      pqb: 0.57.7(pg@8.17.2)(postgres@3.4.7)
       prompts: 2.4.2
-      rake-db: 2.25.16
+      rake-db: 2.27.23(pg@8.17.2)(postgres@3.4.7)
       typescript: 5.8.3
     transitivePeerDependencies:
-      - pg-native
+      - pg
+      - postgres
 
   os-homedir@1.0.2: {}
 
@@ -15781,13 +15786,13 @@ snapshots:
   pg-cloudflare@1.3.0:
     optional: true
 
-  pg-connection-string@2.10.0: {}
+  pg-connection-string@2.10.1: {}
 
   pg-int8@1.0.1: {}
 
-  pg-pool@3.11.0(pg@8.17.1):
+  pg-pool@3.11.0(pg@8.17.2):
     dependencies:
-      pg: 8.17.1
+      pg: 8.17.2
 
   pg-protocol@1.11.0: {}
 
@@ -15799,10 +15804,10 @@ snapshots:
       postgres-date: 1.0.7
       postgres-interval: 1.2.0
 
-  pg@8.17.1:
+  pg@8.17.2:
     dependencies:
-      pg-connection-string: 2.10.0
-      pg-pool: 3.11.0(pg@8.17.1)
+      pg-connection-string: 2.10.1
+      pg-pool: 3.11.0(pg@8.17.2)
       pg-protocol: 1.11.0
       pg-types: 2.2.0
       pgpass: 1.0.5
@@ -16065,13 +16070,12 @@ snapshots:
 
   postgres@3.4.7: {}
 
-  pqb@0.54.3:
+  pqb@0.57.7(pg@8.17.2)(postgres@3.4.7):
     dependencies:
       '@types/pg': 8.16.0
-      orchid-core: 0.27.2
-      pg: 8.17.1
-    transitivePeerDependencies:
-      - pg-native
+    optionalDependencies:
+      pg: 8.17.2
+      postgres: 3.4.7
 
   prelude-ls@1.2.1: {}
 
@@ -16234,13 +16238,13 @@ snapshots:
     dependencies:
       inherits: 2.0.4
 
-  rake-db@2.25.16:
+  rake-db@2.27.23(pg@8.17.2)(postgres@3.4.7):
     dependencies:
-      orchid-core: 0.27.2
-      pqb: 0.54.3
+      pqb: 0.57.7(pg@8.17.2)(postgres@3.4.7)
       prompts: 2.4.2
     transitivePeerDependencies:
-      - pg-native
+      - pg
+      - postgres
 
   randomatic@3.1.1:
     dependencies:

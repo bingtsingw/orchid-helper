@@ -1,3 +1,7 @@
+# orchid-orm 1.56
+
+从`1.56`起, `findBy`开始检查`undefined`值.
+
 # orchid-orm 1.42
 
 在`1.42`版本之前, `orCreate`会自动给之前的`query`加上`LIMIT 1`, 所以写`where()`等同于写`where().take()`.  

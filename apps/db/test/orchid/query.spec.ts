@@ -4,13 +4,11 @@ import { describe, expect, test } from 'bun:test';
 describe('query', () => {
   /**
    * 文档: https://orchid-orm.netlify.app/guide/query-methods.html#find
-   * 源码: https://github.com/romeerez/orchid-orm/blob/main/packages/qb/pqb/src/queryMethods/queryMethods.ts
+   * 源码: https://github.com/romeerez/orchid-orm/blob/main/packages/pqb/src/query/basic-features/where/where.ts
    *
-   * `find`和`findBy`都是`where().take()`的语法糖, 但是`find`会做`undefined`和`null`检查, `findBy`不会.
+   * `find`和`findBy`都是`where().take()`的语法糖.
    */
   test('find undefined vs findBy undefined', async () => {
-    const user = await db.user.create({});
-
     // `find`会做`undefined`和`null`检查
     expect(async () => db.user.find(undefined!)).toThrow('undefined is not allowed in the find method');
     expect(async () => db.user.find(null!)).toThrow('null is not allowed in the find method');
@@ -21,10 +19,12 @@ describe('query', () => {
     expect(async () => db.user.findOptional(null!)).toThrow('null is not allowed in the find method');
     expect(await db.user.findOptional('')).toBeUndefined();
 
-    // !warning: `findBy`其实是`.where().take()`的语法糖, 不会做`undefined`和`null`检查, 当`findBy`遇上`undefined`时, 会返回随机record.
-    expect(await db.user.findBy({ id: undefined! })).toMatchObject({ id: user.id });
+    // `findBy`只检查`undefined`, 不检查`null`, 这个设计是合理的, 因为`find`的对象是`PK`, 不可能是`null`; `findBy`的对象是所有`unique`字段, 可能是`null`.
+    expect(async () => db.user.findBy({ id: undefined! })).toThrow('findBy was called with undefined value');
     expect(async () => db.user.findBy({ id: null! })).toThrow('Record is not found');
-    expect(await db.user.findByOptional({ id: undefined! })).toMatchObject({ id: user.id });
+    expect(async () => db.user.findByOptional({ id: undefined! })).toThrow(
+      'findByOptional was called with undefined value',
+    );
     expect(await db.user.findByOptional({ id: null! })).toBeUndefined();
   });
 
@@ -78,7 +78,6 @@ describe('query', () => {
     expect(await db.user.findBy({ id: 'x' }).getOptional('id')).toBeUndefined();
     expect(async () => db.user.findByOptional({ id: 'x' }).get('id')).toThrow('Record is not found');
     expect(await db.user.findByOptional({ id: 'x' })).toBeUndefined();
-    expect(await db.user.findByOptional({ id: undefined! }).get('id')).toBe(user.id);
   });
 
   test('take vs takeOptional', async () => {

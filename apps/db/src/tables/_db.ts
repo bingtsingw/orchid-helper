@@ -1,4 +1,4 @@
-import { orchidORM } from 'orchid-orm';
+import { orchidORM } from 'orchid-orm/node-postgres';
 import { TablePost } from './post';
 import { TableUser } from './user';
 
