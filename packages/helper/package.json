@@ -28,10 +28,10 @@
     "@paralleldrive/cuid2": "^3.0.6"
   },
   "devDependencies": {
-    "orchid-orm": "1.58.10"
+    "orchid-orm": "1.60.4"
   },
   "peerDependencies": {
-    "orchid-orm": "^1.58.10"
+    "orchid-orm": "^1.60.4"
   },
   "publishConfig": {
     "access": "public",
