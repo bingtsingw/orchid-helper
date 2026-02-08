@@ -1,5 +1,13 @@
 # @bingtsingw/orchid-helper
 
+## 1.0.1
+
+### Patch Changes
+
+- [`5151ad9`](https://github.com/bingtsingw/orchid-helper/commit/5151ad97c09db1ebd06ed2db839eff9efd68b930) Thanks [@bingtsingw](https://github.com/bingtsingw)! - nowSql use clock_timestamp
+
+- [`8b7d450`](https://github.com/bingtsingw/orchid-helper/commit/8b7d4502d9cb0270f58b9048594d0370f63d789e) Thanks [@bingtsingw](https://github.com/bingtsingw)! - upgrade orchid-orm to 1.62.1
+
 ## 1.0.0
 
 ### Major Changes
