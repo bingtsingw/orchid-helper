@@ -15,7 +15,7 @@
   "devDependencies": {
     "@bingtsingw/orchid-helper": "workspace:^",
     "date-fns": "^4.1.0",
-    "orchid-orm": "1.61.2",
+    "orchid-orm": "1.62.0",
     "pg": "^8.18.0",
     "prisma": "^7.3.0"
   }
