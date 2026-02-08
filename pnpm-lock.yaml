@@ -30,8 +30,8 @@ importers:
         specifier: ^4.1.0
         version: 4.1.0
       orchid-orm:
-        specifier: 1.60.4
-        version: 1.60.4(pg@8.18.0)(postgres@3.4.7)(typescript@5.8.3)
+        specifier: 1.61.2
+        version: 1.61.2(pg@8.18.0)(postgres@3.4.7)(typescript@5.8.3)
       pg:
         specifier: ^8.18.0
         version: 8.18.0
@@ -49,8 +49,8 @@ importers:
         version: 13.0.0
     devDependencies:
       orchid-orm:
-        specifier: 1.60.4
-        version: 1.60.4(pg@8.18.0)(postgres@3.4.7)(typescript@5.8.3)
+        specifier: 1.61.2
+        version: 1.61.2(pg@8.18.0)(postgres@3.4.7)(typescript@5.8.3)
 
 packages:
 
@@ -2140,6 +2140,9 @@ packages:
 
   '@types/node@24.10.12':
     resolution: {integrity: sha512-68e+T28EbdmLSTkPgs3+UacC6rzmqrcWFPQs1C8mwJhI/r5Uxr0yEuQotczNRROd1gq30NGxee+fo0rSIxpyAw==}
+
+  '@types/node@25.2.2':
+    resolution: {integrity: sha512-BkmoP5/FhRYek5izySdkOneRyXYN35I860MFAGupTdebyE66uZaR+bXLHq8k4DirE5DwQi3NuhvRU1jqTVwUrQ==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -5689,8 +5692,8 @@ packages:
     resolution: {integrity: sha512-m0pg2zscbYgWbqRR6ABga5c3sZdEon7bSgjnlXC64kxtxLOyjRcbbUkLj7HFyy/FTD+P2xdBWu8snGhYI0jc4A==}
     engines: {node: '>=20'}
 
-  orchid-orm@1.60.4:
-    resolution: {integrity: sha512-JFKREjvSRtUjbCoB1Kegha/cvw8j2deRyQf1vA0A4s4rHyHCCrWBTOoPJve7LukdyHyiZN3vdnOAs/feOBa1eg==}
+  orchid-orm@1.61.2:
+    resolution: {integrity: sha512-vX9J2LpqPMqeKFFF0QEScrRgMn3CFOAhPdOmpAk42XiV+xJ1sYIftIbh2l7NHRbCUeRFxIfhJsxAHgccDGI1gw==}
     peerDependencies:
       typescript: '*'
 
@@ -6216,8 +6219,8 @@ packages:
     resolution: {integrity: sha512-Jtc2612XINuBjIl/QTWsV5UvE8UHuNblcO3vVADSrKsrc6RqGX6lOW1cEo3CM2v0XG4Nat8nI+YM7/f26VxXLw==}
     engines: {node: '>=12'}
 
-  pqb@0.59.2:
-    resolution: {integrity: sha512-zbTlcb7m+QIOOIvrShBjgFgktuytheLnZZyWeMmQtfXXyEdAqNnqUm9z8kxm8kVOBIS7foFjEdThxH09v0182Q==}
+  pqb@0.60.1:
+    resolution: {integrity: sha512-KGdS8rdVNz5mNXm7TGFZLA2KXrgbK4vF/reGoFZLtwDXlq+qKe+gK3JOd+h+4qj3VjUuS4XH+7vxs2TV6LLIng==}
     peerDependencies:
       pg: '>=8'
       postgres: '>=3'
@@ -6442,8 +6445,8 @@ packages:
   queue@6.0.2:
     resolution: {integrity: sha512-iHZWu+q3IdFZFX36ro/lKBkSvfkztY5Y7HMiPlOUjhupPcG2JMfst2KKEpu5XndviX/3UhFbRngUPNKtgvtZiA==}
 
-  rake-db@2.27.32:
-    resolution: {integrity: sha512-QE8oQV8dttXaihYbFe9IlKv/om/SGlcYJRGCW1qRrFxwvvfLXjRX3ohxDruzEzk2MCjezlFxurX/nVYRBuh0Cw==}
+  rake-db@2.28.1:
+    resolution: {integrity: sha512-nPO7p80q7fy6ktAn2UkGV/KsAwA1bXrA9zj4QPE74KMG0HUaa2ANH/QJfLgD+jHRl7T5sp7AE34l4epTTlS7xg==}
 
   randomatic@3.1.1:
     resolution: {integrity: sha512-TuDE5KxZ0J461RVjrJZCJc+J+zCkTb1MbH9AQUq68sMhOMcy9jLcb3BrZKgp9q9Ncltdg4QVqWrH02W2EFFVYw==}
@@ -10287,6 +10290,10 @@ snapshots:
     dependencies:
       undici-types: 7.16.0
 
+  '@types/node@25.2.2':
+    dependencies:
+      undici-types: 7.16.0
+
   '@types/normalize-package-data@2.4.4': {}
 
   '@types/parse-path@7.1.0':
@@ -10295,7 +10302,7 @@ snapshots:
 
   '@types/pg@8.16.0':
     dependencies:
-      '@types/node': 24.10.12
+      '@types/node': 25.2.2
       pg-protocol: 1.11.0
       pg-types: 2.2.0
 
@@ -14782,12 +14789,12 @@ snapshots:
       string-width: 8.1.0
       strip-ansi: 7.1.2
 
-  orchid-orm@1.60.4(pg@8.18.0)(postgres@3.4.7)(typescript@5.8.3):
+  orchid-orm@1.61.2(pg@8.18.0)(postgres@3.4.7)(typescript@5.8.3):
     dependencies:
       inflection: 3.0.2
-      pqb: 0.59.2(pg@8.18.0)(postgres@3.4.7)
+      pqb: 0.60.1(pg@8.18.0)(postgres@3.4.7)
       prompts: 2.4.2
-      rake-db: 2.27.32(pg@8.18.0)(postgres@3.4.7)
+      rake-db: 2.28.1(pg@8.18.0)(postgres@3.4.7)
       typescript: 5.8.3
     transitivePeerDependencies:
       - pg
@@ -15251,7 +15258,7 @@ snapshots:
 
   postgres@3.4.7: {}
 
-  pqb@0.59.2(pg@8.18.0)(postgres@3.4.7):
+  pqb@0.60.1(pg@8.18.0)(postgres@3.4.7):
     dependencies:
       '@types/pg': 8.16.0
     optionalDependencies:
@@ -15419,9 +15426,9 @@ snapshots:
     dependencies:
       inherits: 2.0.4
 
-  rake-db@2.27.32(pg@8.18.0)(postgres@3.4.7):
+  rake-db@2.28.1(pg@8.18.0)(postgres@3.4.7):
     dependencies:
-      pqb: 0.59.2(pg@8.18.0)(postgres@3.4.7)
+      pqb: 0.60.1(pg@8.18.0)(postgres@3.4.7)
       prompts: 2.4.2
     transitivePeerDependencies:
       - pg
