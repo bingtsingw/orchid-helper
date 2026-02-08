@@ -25,7 +25,8 @@
     "extends": "@xstools-dev/eslint-config/base"
   },
   "dependencies": {
-    "@paralleldrive/cuid2": "^3.0.6"
+    "@xstools/utility": "^0.20.2",
+    "uuid": "^13.0.0"
   },
   "devDependencies": {
     "orchid-orm": "1.60.4"
