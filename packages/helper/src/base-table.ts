@@ -46,7 +46,7 @@ const deletedAt = (t: DefaultColumnTypes<DefaultSchemaConfig>) => () => t.timest
 
 export const BaseTable = createBaseTable({
   snakeCase: true,
-  nowSQL: `now()::timestamptz(3) AT TIME ZONE 'UTC'`,
+  nowSQL: `clock_timestamp()::timestamptz(3) AT TIME ZONE 'UTC'`,
 
   columnTypes: (t) => ({
     ...t,
