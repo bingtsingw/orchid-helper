@@ -29,10 +29,10 @@
     "uuid": "^13.0.0"
   },
   "devDependencies": {
-    "orchid-orm": "1.62.0"
+    "orchid-orm": "1.62.1"
   },
   "peerDependencies": {
-    "orchid-orm": "^1.62.0"
+    "orchid-orm": "^1.62.1"
   },
   "publishConfig": {
     "access": "public",
