@@ -27,6 +27,8 @@ model Cuid2 {
   updatedAt DateTime  @default(now()) @updatedAt @map("updated_at") @db.Timestamp
   deletedAt DateTime? @map("deleted_at") @db.Timestamp
 
+  l20 String @db.VarChar
+
   @@map("cuid2")
 }
 

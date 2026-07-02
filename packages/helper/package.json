@@ -25,14 +25,14 @@
     "extends": "@xstools-dev/eslint-config/base"
   },
   "dependencies": {
-    "@xstools/utility": "^0.20.2",
-    "uuid": "^13.0.0"
+    "@xstools/utility": "^0.23.1",
+    "uuid": "^14.0.1"
   },
   "devDependencies": {
-    "orchid-orm": "1.62.1"
+    "orchid-orm": "1.62.4"
   },
   "peerDependencies": {
-    "orchid-orm": "^1.62.1"
+    "orchid-orm": "^1.62.4"
   },
   "publishConfig": {
     "access": "public",

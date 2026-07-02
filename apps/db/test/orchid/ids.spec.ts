@@ -14,6 +14,7 @@ describe('ids', () => {
     const c1 = await db.cuid2.create({});
 
     expect(c1.id.length).toBe(24);
+    expect(c1.l20.length).toBe(20);
   });
 
   test('short', async () => {
