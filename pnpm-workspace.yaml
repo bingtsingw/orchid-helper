@@ -1,3 +1,8 @@
+autoInstallPeers: false
+
 packages:
   - 'packages/*'
   - 'apps/*'
+allowBuilds:
+  '@prisma/engines': false
+  prisma: false

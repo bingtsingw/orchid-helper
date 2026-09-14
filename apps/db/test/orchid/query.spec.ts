@@ -1,5 +1,5 @@
-import { db } from '@/src';
 import { describe, expect, test } from 'bun:test';
+import { db } from '@/src';
 
 describe('query', () => {
   /**
@@ -126,7 +126,7 @@ describe('query', () => {
      */
 
     // @ts-expect-error
-    await db.user.where({ password: '2' }).orCreate({ password: '2' });
+    await Promise.resolve(db.user.where({ password: '2' }).orCreate({ password: '2' }));
     expect(await db.user.count()).toBe(2);
 
     // @ts-expect-error

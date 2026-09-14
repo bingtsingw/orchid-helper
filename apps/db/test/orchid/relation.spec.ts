@@ -1,5 +1,5 @@
-import { db, EnumPostState } from '@/src';
 import { describe, expect, test } from 'bun:test';
+import { db, EnumPostState } from '@/src';
 
 describe('query', () => {
   test('whereExists', async () => {

@@ -1,5 +1,5 @@
-import { db, testTransaction } from '@/src';
 import { afterAll, afterEach, beforeAll, beforeEach } from 'bun:test';
+import { db, testTransaction } from '@/src';
 
 beforeAll(async () => {
   await testTransaction.start(db);

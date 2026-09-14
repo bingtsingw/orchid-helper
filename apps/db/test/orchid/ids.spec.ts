@@ -1,5 +1,5 @@
-import { db } from '@/src';
 import { describe, expect, test } from 'bun:test';
+import { db } from '@/src';
 
 describe('ids', () => {
   test('uuid25', async () => {

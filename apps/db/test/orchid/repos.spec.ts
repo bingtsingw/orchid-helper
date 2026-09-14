@@ -1,5 +1,5 @@
-import { db, dr } from '@/src';
 import { describe, expect, test } from 'bun:test';
+import { db, dr } from '@/src';
 
 describe('repos', () => {
   test('whereSearchName', async () => {
