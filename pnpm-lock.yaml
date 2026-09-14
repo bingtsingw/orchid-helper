@@ -188,8 +188,8 @@ importers:
   apps/db:
     dependencies:
       '@xstools/utility':
-        specifier: ^0.23.1
-        version: 0.23.1
+        specifier: ^1.1.0
+        version: 1.1.0
     devDependencies:
       '@bingtsingw/orchid-helper':
         specifier: workspace:^
@@ -199,10 +199,10 @@ importers:
         version: 4.4.0
       orchid-orm:
         specifier: 1.62.4
-        version: 1.62.4(pg@8.22.0)(postgres@3.4.7)(typescript@5.8.3)
+        version: 1.62.4(pg@8.23.0)(postgres@3.4.7)(typescript@5.8.3)
       pg:
-        specifier: ^8.22.0
-        version: 8.22.0
+        specifier: ^8.23.0
+        version: 8.23.0
       prisma:
         specifier: ^7.8.0
         version: 7.8.0(typescript@5.8.3)
@@ -210,11 +210,11 @@ importers:
   packages/helper:
     dependencies:
       '@xstools/utility':
-        specifier: ^0.23.1
-        version: 0.23.1
+        specifier: ^1.1.0
+        version: 1.1.0
       uuid:
-        specifier: ^14.0.1
-        version: 14.0.1
+        specifier: ^14.0.2
+        version: 14.0.2
     devDependencies:
       orchid-orm:
         specifier: 1.62.4
@@ -329,9 +329,6 @@ packages:
   '@conventional-changelog/template@1.4.0':
     resolution: {integrity: sha512-aalGyl7dbB5PArRebDIX43ZvBlXrYm9uWzGJ26t+4SzJVPsOuvfILGGbw5X4yX7i50YEmJ8zvbiWnqH/AAnZqg==}
     engines: {node: '>=22'}
-
-  '@date-fns/tz@1.4.1':
-    resolution: {integrity: sha512-P5LUNhtbj6YfI3iJjw5EL9eUAG6OitD0W3fWQcpQjDRc/QIsL0tRNuO1PcDvPccWL1fSTXXdE1ds+l95DV/OFA==}
 
   '@dotenvx/dotenvx@2.23.0':
     resolution: {integrity: sha512-LkiCs5ZpGIy+jn85YJKEYKPZkq8QwZegYviwr8w4eFTq+Fb2+j+hFldWpdhppPmFP8ut0cplxL4EEoW06Rzfhw==}
@@ -1355,8 +1352,8 @@ packages:
   '@xstools-dev/config-ts@0.2.0':
     resolution: {integrity: sha512-OOMrZntGstEi1aX6s5CvYxn/p10euxouaCrIopgvZ8MQZOkVmm/Glqbqk65UKvG5mubSotLkjCQMSVP9hGKbgg==}
 
-  '@xstools/utility@0.23.1':
-    resolution: {integrity: sha512-O1RyS2V6bcbFkyzf+4KqunF/B6XSCUFPq47RjSsRHIXdrDbZ23L92EsE3Hdvh6j39fXuFf071lh0cSNjkwZfGQ==}
+  '@xstools/utility@1.1.0':
+    resolution: {integrity: sha512-QtCnvXHavhR9qa+3AB+/DN17+ce8uoNe6znq8VJrl7DmAH5lc/zMmSx8SF2462cmYy105JB8JH6e/2/FNTcSoQ==}
 
   '@yuku-codegen/binding-android-arm64@0.9.5':
     resolution: {integrity: sha512-jrOY5WM+AaAqkv51fHP1x28ifto4WgcZVzodLUyMU1jMWn5Sq+VciRdk/n8E0Ey5w4p4cWWE+m5GfXWOYh7Kzw==}
@@ -1669,9 +1666,6 @@ packages:
 
   dataloader@2.2.3:
     resolution: {integrity: sha512-y2krtASINtPFS1rSDjacrFgn1dcUuoREVabwlOGOe4SdxenREqwjwjElAdwvbGM7kgZz9a3KVicWR7vcz8rnzA==}
-
-  date-fns@4.1.0:
-    resolution: {integrity: sha512-Ukq0owbQXxa/U3EGtsdVBkR1w7KOQ5gIBqdH2hkvknzZPYvBxb/aa6E8L7tmjFtkwZBu3UXBbjIgPo/Ez4xaNg==}
 
   date-fns@4.4.0:
     resolution: {integrity: sha512-+1UMbeh68lH1SegH83CGWwpb6OHHbpSgr3+s5Eww5M4CAgswBpoWS0AjTOfEJ33HiYKz1hdj/KTFprzXHmq/6w==}
@@ -2184,9 +2178,9 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
-  nanoid@5.1.11:
-    resolution: {integrity: sha512-v+KEsUv2ps74PaSKv0gHTxTCgMXOIfBEbaqa6w6ISIGC7ZsvHN4N9oJ8d4cmf0n5oTzQz2SLmThbQWhjd/8eKg==}
-    engines: {node: ^18 || >=20}
+  nanoid@6.0.1:
+    resolution: {integrity: sha512-3wVS3i51pE2pi1k5FFL/95BGfVS0kSsvDVuGXHOtxox/TywUmtgq+3qiTOTbs9J7KfHaXPiN171k/A6dBnaXFw==}
+    engines: {node: ^22 || ^24 || >=26}
     hasBin: true
 
   netmask@2.0.2:
@@ -2203,6 +2197,9 @@ packages:
 
   ohash@2.0.11:
     resolution: {integrity: sha512-RdR9FQrFwNBNXAr4GixM8YaRZRJ5PUWbKYbE5eOsrwAjJW0q2REGcf79oYPsLyskQCZG1PLN+S/K1V00joZAoQ==}
+
+  ohash@2.0.12:
+    resolution: {integrity: sha512-65S/5gk9YSsaRjcyf7Nfa6h/d3E8/1gslpXfI4W7Dxn/oap8IKRuNT5VXkLQ1YFKIEg4apRY4Pj6aiwFzrDdmw==}
 
   onetime@7.0.0:
     resolution: {integrity: sha512-VXJjc87FScF88uafS3JllDgvAm+c/Slfz06lorj2uAY34rlUu0Nt+v8wreiImcrgAjjIHp1rXpTDlLOGw29WwQ==}
@@ -2311,12 +2308,24 @@ packages:
   pg-protocol@1.15.0:
     resolution: {integrity: sha512-cq9sECI5s0+uPUXjbz8ioyPJni6RzsRib0US67i5IoTZKw8fNeYlVE7u8F4dG7vEJJtc5wdD1K189lCCUwqWTQ==}
 
+  pg-protocol@1.16.0:
+    resolution: {integrity: sha512-sILXutLVjCLjcDuOmvhX5e2Z4cS5qG/6Bu3VkpFwdf/633ElGLpEh9bgmuI5I4sqKqkifQiGyiCcx1HdtrK7tg==}
+
   pg-types@2.2.0:
     resolution: {integrity: sha512-qTAAlrEsl8s4OiEQY69wDvcMIdQN6wdz5ojQiOy6YRMuynxenON0O5oCpJI6lshc6scgAY8qvJ2On/p+CXY0GA==}
     engines: {node: '>=4'}
 
   pg@8.22.0:
     resolution: {integrity: sha512-8wih1vVIBMxoUM2oB4soJsD9tDnDpLv4OXBJ+EJzFsvycD+lfyIreC2gGHq78f8jbLLt+bvlPTFdFZfJkOuzAA==}
+    engines: {node: '>= 16.0.0'}
+    peerDependencies:
+      pg-native: '>=3.0.1'
+    peerDependenciesMeta:
+      pg-native:
+        optional: true
+
+  pg@8.23.0:
+    resolution: {integrity: sha512-Ip2EQCngowJLGOfCwkFhPXU7/ljlhn6Rxlmy4XYfL2Y+vyRM59+8uR2xqRWKdYmbXmxCFOAmKxBuSUCdF34qLg==}
     engines: {node: '>= 16.0.0'}
     peerDependencies:
       pg-native: '>=3.0.1'
@@ -2745,8 +2754,8 @@ packages:
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
-  uuid@14.0.1:
-    resolution: {integrity: sha512-6ZxzVpzDXDa3bJWaHilVayA+BH/1zmxCJoVgvmqJnid/gPoKHxUrS/aC/T6LGQtNHT+XHG9fXPJB4d+IrU30Ew==}
+  uuid@14.0.2:
+    resolution: {integrity: sha512-xZe/16rV4aa+HGSOCiY2YeLT1OybRLrrkL/Rqaq7p7GMVXjFh+6wN4oMYgjFmnSnhY8t6Xpdl2l9qmnHYuMHwQ==}
     hasBin: true
 
   valibot@1.2.0:
@@ -3070,8 +3079,6 @@ snapshots:
       conventional-commits-parser: 7.1.2
 
   '@conventional-changelog/template@1.4.0': {}
-
-  '@date-fns/tz@1.4.1': {}
 
   '@dotenvx/dotenvx@2.23.0':
     dependencies:
@@ -3856,13 +3863,12 @@ snapshots:
 
   '@xstools-dev/config-ts@0.2.0': {}
 
-  '@xstools/utility@0.23.1':
+  '@xstools/utility@1.1.0':
     dependencies:
-      '@date-fns/tz': 1.4.1
       '@paralleldrive/cuid2': 3.3.0
-      date-fns: 4.1.0
-      nanoid: 5.1.11
-      ohash: 2.0.11
+      date-fns: 4.4.0
+      nanoid: 6.0.1
+      ohash: 2.0.12
 
   '@yuku-codegen/binding-android-arm64@0.9.5':
     optional: true
@@ -4101,8 +4107,6 @@ snapshots:
   data-uri-to-buffer@8.0.0: {}
 
   dataloader@2.2.3: {}
-
-  date-fns@4.1.0: {}
 
   date-fns@4.4.0: {}
 
@@ -4526,7 +4530,7 @@ snapshots:
 
   nanoid@3.3.19: {}
 
-  nanoid@5.1.11: {}
+  nanoid@6.0.1: {}
 
   netmask@2.0.2: {}
 
@@ -4537,6 +4541,8 @@ snapshots:
   obug@2.2.1: {}
 
   ohash@2.0.11: {}
+
+  ohash@2.0.12: {}
 
   onetime@7.0.0:
     dependencies:
@@ -4568,6 +4574,17 @@ snapshots:
       pqb: 0.60.5(pg@8.22.0)(postgres@3.4.7)
       prompts: 2.4.2
       rake-db: 2.29.4(pg@8.22.0)(postgres@3.4.7)
+      typescript: 5.8.3
+    transitivePeerDependencies:
+      - pg
+      - postgres
+
+  orchid-orm@1.62.4(pg@8.23.0)(postgres@3.4.7)(typescript@5.8.3):
+    dependencies:
+      inflection: 3.0.2
+      pqb: 0.60.5(pg@8.23.0)(postgres@3.4.7)
+      prompts: 2.4.2
+      rake-db: 2.29.4(pg@8.23.0)(postgres@3.4.7)
       typescript: 5.8.3
     transitivePeerDependencies:
       - pg
@@ -4687,8 +4704,15 @@ snapshots:
   pg-pool@3.14.0(pg@8.22.0):
     dependencies:
       pg: 8.22.0
+    optional: true
+
+  pg-pool@3.14.0(pg@8.23.0):
+    dependencies:
+      pg: 8.23.0
 
   pg-protocol@1.15.0: {}
+
+  pg-protocol@1.16.0: {}
 
   pg-types@2.2.0:
     dependencies:
@@ -4703,6 +4727,17 @@ snapshots:
       pg-connection-string: 2.14.0
       pg-pool: 3.14.0(pg@8.22.0)
       pg-protocol: 1.15.0
+      pg-types: 2.2.0
+      pgpass: 1.0.5
+    optionalDependencies:
+      pg-cloudflare: 1.4.0
+    optional: true
+
+  pg@8.23.0:
+    dependencies:
+      pg-connection-string: 2.14.0
+      pg-pool: 3.14.0(pg@8.23.0)
+      pg-protocol: 1.16.0
       pg-types: 2.2.0
       pgpass: 1.0.5
     optionalDependencies:
@@ -4762,6 +4797,13 @@ snapshots:
       '@types/pg': 8.16.0
     optionalDependencies:
       pg: 8.22.0
+      postgres: 3.4.7
+
+  pqb@0.60.5(pg@8.23.0)(postgres@3.4.7):
+    dependencies:
+      '@types/pg': 8.16.0
+    optionalDependencies:
+      pg: 8.23.0
       postgres: 3.4.7
 
   presentable-error@0.0.1: {}
@@ -4829,6 +4871,14 @@ snapshots:
   rake-db@2.29.4(pg@8.22.0)(postgres@3.4.7):
     dependencies:
       pqb: 0.60.5(pg@8.22.0)(postgres@3.4.7)
+      prompts: 2.4.2
+    transitivePeerDependencies:
+      - pg
+      - postgres
+
+  rake-db@2.29.4(pg@8.23.0)(postgres@3.4.7):
+    dependencies:
+      pqb: 0.60.5(pg@8.23.0)(postgres@3.4.7)
       prompts: 2.4.2
     transitivePeerDependencies:
       - pg
@@ -5096,7 +5146,7 @@ snapshots:
 
   util-deprecate@1.0.2: {}
 
-  uuid@14.0.1: {}
+  uuid@14.0.2: {}
 
   valibot@1.2.0(typescript@5.8.3):
     optionalDependencies:

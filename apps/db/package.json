@@ -7,13 +7,13 @@
     "db:test-rebuild": "dotenvx run -f .env.test -- prisma db push --force-reset --accept-data-loss"
   },
   "dependencies": {
-    "@xstools/utility": "^0.23.1"
+    "@xstools/utility": "^1.1.0"
   },
   "devDependencies": {
     "@bingtsingw/orchid-helper": "workspace:^",
     "date-fns": "^4.4.0",
     "orchid-orm": "1.62.4",
-    "pg": "^8.22.0",
+    "pg": "^8.23.0",
     "prisma": "^7.8.0"
   }
 }
