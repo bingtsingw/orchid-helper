@@ -1,5 +1,11 @@
 # @bingtsingw/orchid-helper
 
+## 1.0.3
+
+### Patch Changes
+
+- [`62a7673`](https://github.com/bingtsingw/orchid-helper/commit/62a7673e7fbf064b8a0e2ebdd1d5f4660ca5275f) Thanks [@bingtsingw](https://github.com/bingtsingw)! - upgrade deps
+
 ## 1.0.2
 
 ### Patch Changes
