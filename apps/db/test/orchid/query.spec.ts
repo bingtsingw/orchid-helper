@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test';
-import { db } from '@/src';
+import { createDb, db } from '@/src';
 
 describe('query', () => {
   /**
@@ -95,6 +95,12 @@ describe('query', () => {
     });
 
     expect(await db.user.where({ phone: undefined! }).select('id').takeOptional()).toMatchObject({ id: user.id });
+  });
+
+  test('empty select returns an empty record', async () => {
+    const user = await db.user.create({ phone: 'empty-select' });
+
+    expect(await db.user.find(user.id).select()).toEqual({});
   });
 
   /**
@@ -205,6 +211,27 @@ describe('query', () => {
     expect(await db.user.count()).toBe(1);
   });
 
+  test('upsert can restore a soft-deleted record when it is explicitly included', async () => {
+    const email = 'soft-deleted-upsert@example.com';
+    const user = await db.user.create({ email, password: 'before-delete' });
+    await db.user.find(user.id).delete();
+
+    await db.user
+      .includeDeleted()
+      .findBy({ email })
+      .upsert({
+        update: { deletedAt: null, password: 'restored' },
+        create: { email, password: 'created' },
+      });
+
+    expect(await db.user.findBy({ email })).toMatchObject({
+      id: user.id,
+      deletedAt: null,
+      password: 'restored',
+    });
+    expect(await db.user.includeDeleted().where({ email }).count()).toBe(1);
+  });
+
   /**
    * `upsert`中使用到了`update`的逻辑, 所以`take`不生效.
    */
@@ -222,6 +249,34 @@ describe('query', () => {
             update: { password: '1' },
           }),
     ).toThrow('Only one row was expected to find, found 2 rows.');
+  });
+
+  test('并发 upsert 时仅一个请求成功', async () => {
+    const email = `parallel-upsert-${crypto.randomUUID()}@example.com`;
+    // 使用独立连接池，避免测试框架的事务连接将两个请求串行化。
+    const firstDb = createDb();
+    const secondDb = createDb();
+
+    try {
+      const upsert = (database: ReturnType<typeof createDb>) =>
+        database.user.findBy({ email }).upsert({
+          update: { password: 'updated' },
+          create: { email, password: 'created' },
+        });
+
+      const result = await Promise.allSettled([upsert(firstDb), upsert(secondDb)]);
+      const fulfilled = result.filter((item) => item.status === 'fulfilled');
+      const rejected = result.filter((item) => item.status === 'rejected');
+
+      expect(fulfilled).toHaveLength(1);
+      expect(rejected).toHaveLength(1);
+      expect(rejected[0]?.reason).toMatchObject({ code: '23505' });
+      expect(await firstDb.user.where({ email }).count()).toBe(1);
+    } finally {
+      expect(await db.user.findBy({ email })).toMatchObject({ password: 'created' });
+      await firstDb.user.where({ email }).hardDelete();
+      await Promise.all([firstDb.$close(), secondDb.$close()]);
+    }
   });
 
   test('jsonSet & jsonInsert', async () => {

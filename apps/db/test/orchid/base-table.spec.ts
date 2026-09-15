@@ -69,17 +69,9 @@ describe('BaseTable', () => {
     expectCloseToDate(await query.includeDeleted().get('deletedAt'), t1);
   });
 
-  test('json', async () => {
-    const user = await db.user.create({ profile: { name: 'test' } });
-    const query = db.user.find(user.id);
-
-    await query.update({ profile: { name: 'test2' } });
-    expect(await query.get('profile')).toEqual({ name: 'test2' });
-  });
-
   test('xEnum', async () => {
     const user = await db.user.create({});
-    await db.post.create({ userId: user.id, state: EnumPostState.Publish });
+    const post = await db.post.create({ userId: user.id, state: EnumPostState.Publish });
 
     expect(await db.post.where({ state: EnumPostState.Publish }).count()).toBe(1);
     // @ts-expect-error
@@ -95,6 +87,18 @@ describe('BaseTable', () => {
     expect(await db.post.where({ state: EnumPostState.Finish }).count()).toBe(1);
     // @ts-expect-error
     expect(await db.post.where({ state: 'Finish' }).count()).toBe(1);
+
+    // xEnum 仅收窄应用侧类型，数据库列仍然保存 string。
+    await db.post.find(post.id).update({ state: 'custom-state' as never });
+    expect(await db.post.find(post.id).get('state')).toBe('custom-state' as never);
+  });
+
+  test('json', async () => {
+    const user = await db.user.create({ profile: { name: 'test' } });
+    const query = db.user.find(user.id);
+
+    await query.update({ profile: { name: 'test2' } });
+    expect(await query.get('profile')).toEqual({ name: 'test2' });
   });
 
   test('xJsonText', async () => {
@@ -125,6 +129,21 @@ describe('BaseTable', () => {
 
     await query.update({ publishAt: t1.toISOString() });
     expectCloseToDate(await query.get('publishAt'), t1);
+  });
+
+  test('xTimestamp 在夏令时切换边界仍按 UTC 往返', async () => {
+    const user = await db.user.create({});
+    const dates = [
+      new Date('2024-03-10T09:59:59.123Z'),
+      new Date('2024-03-10T10:00:00.456Z'),
+      new Date('2024-11-03T08:59:59.123Z'),
+      new Date('2024-11-03T09:00:00.456Z'),
+    ];
+
+    const posts = await Promise.all(dates.map((publishAt) => db.post.create({ userId: user.id, publishAt })));
+    const result = await Promise.all(posts.map((post) => db.post.find(post.id).get('publishAt')));
+
+    expect(result.map((date) => date?.toISOString())).toEqual(dates.map((date) => date.toISOString()));
   });
 
   test('parse', async () => {
