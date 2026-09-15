@@ -29,3 +29,4 @@ jobs:
       - run: |
           cd apps/db
           pnpm run db:test-rebuild
+          pnpm run db:test

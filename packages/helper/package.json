@@ -31,9 +31,10 @@
     "uuid": "^14.0.2"
   },
   "devDependencies": {
-    "orchid-orm": "1.62.4"
+    "orchid-orm": "1.62.4",
+    "pg": "8.23.0"
   },
   "peerDependencies": {
-    "orchid-orm": "^1.62.4"
+    "orchid-orm": "1.62.4"
   }
 }
