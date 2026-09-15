@@ -271,7 +271,7 @@ describe('query', () => {
     ).toThrow('Only one row was expected to find, found 2 rows.');
   });
 
-  test('并发 upsert 时仅一个请求成功', async () => {
+  test('并发 upsert 后只保留一条记录', async () => {
     const email = `parallel-upsert-${crypto.randomUUID()}@example.com`;
     // 使用独立连接池，避免测试框架的事务连接将两个请求串行化。
     const firstDb = createDb();
@@ -288,14 +288,24 @@ describe('query', () => {
       const fulfilled = result.filter((item) => item.status === 'fulfilled');
       const rejected = result.filter((item) => item.status === 'rejected');
 
-      expect(fulfilled).toHaveLength(1);
-      expect(rejected).toHaveLength(1);
-      expect(rejected[0]?.reason).toMatchObject({ code: '23505' });
+      // upsert 先尝试 UPDATE、未命中时才 CREATE：两个请求的交错时序可以让其中一个
+      // 请求在另一个创建记录后完成 UPDATE，因此允许两者均成功。
+      expect(
+        (fulfilled.length === 1 && rejected.length === 1) || (fulfilled.length === 2 && rejected.length === 0),
+      ).toBeTrue();
+      if (rejected.length === 1) {
+        expect(rejected[0]?.reason).toMatchObject({ code: '23505' });
+      }
+
       expect(await firstDb.user.where({ email }).count()).toBe(1);
+      const password = (await firstDb.user.findBy({ email })).password;
+      expect(password === 'created' || password === 'updated').toBeTrue();
     } finally {
-      expect(await db.user.findBy({ email })).toMatchObject({ password: 'created' });
-      await firstDb.user.where({ email }).hardDelete();
-      await Promise.all([firstDb.$close(), secondDb.$close()]);
+      try {
+        await firstDb.user.where({ email }).hardDelete();
+      } finally {
+        await Promise.all([firstDb.$close(), secondDb.$close()]);
+      }
     }
   });
 
