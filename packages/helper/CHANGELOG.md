@@ -1,5 +1,11 @@
 # @bingtsingw/orchid-helper
 
+## 2.0.0
+
+### Major Changes
+
+- [`a9c9a8e`](https://github.com/bingtsingw/orchid-helper/commit/a9c9a8e99fa9442cd49e4ae4c414f5b65179ae7e) Thanks [@bingtsingw](https://github.com/bingtsingw)! - 收窄peer依赖
+
 ## 1.0.3
 
 ### Patch Changes
