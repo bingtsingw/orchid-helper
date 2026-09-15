@@ -103,6 +103,26 @@ describe('query', () => {
     expect(await db.user.find(user.id).select()).toEqual({});
   });
 
+  test('empty in matches no records and cannot mutate records', async () => {
+    const user = await db.user.create({ password: 'empty-in' });
+    const emptyIn = { id: { in: [] } };
+
+    expect(await db.user.where(emptyIn).count()).toBe(0);
+
+    await db.user.where(emptyIn).update({ password: 'should-not-update' });
+    expect(await db.user.find(user.id).get('password')).toBe('empty-in');
+
+    await db.user.where(emptyIn).delete();
+    expect(await db.user.find(user.id)).toMatchObject({ id: user.id });
+  });
+
+  test('computed columns cannot be assigned in create or update', () => {
+    expect(() => db.user.create({ profileName: 'readonly' } as never)).toThrow('Trying to insert a readonly column');
+    expect(() => db.user.find('id').update({ profileName: 'readonly' } as never)).toThrow(
+      'Trying to update a readonly column',
+    );
+  });
+
   /**
    * 文档: https://orchid-orm.netlify.app/guide/create-update-delete.html#orcreate
    * 源码: https://github.com/romeerez/orchid-orm/blob/main/packages/pqb/src/query/basic-features/mutate/or-create.ts
