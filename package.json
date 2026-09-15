@@ -5,22 +5,21 @@
   "scripts": {
     "check": "vp check",
     "check-mono": "sherif",
-    "check-publish": "pnpm run build && pnpm run check && pnpm run test",
-    "clean": "del **/dist **/.build **/.swc **/.turbo **/node_modules !node_modules",
+    "check-publish": "pnpm run build && pnpm run check",
+    "clean": "del **/dist **/.build **/.swc **/node_modules !node_modules",
     "commit": "czg",
-    "dev": "turbo run dev",
-    "build": "turbo run build",
-    "prepare": "vp hooks enable",
-    "test": "turbo run test"
+    "dev": "pnpm -r --parallel --if-present run dev",
+    "build": "pnpm -r --if-present run build",
+    "prepare": "vp hooks enable"
   },
   "devDependencies": {
-    "@changesets/cli": "^3.0.2",
+    "@changesets/cli": "^3.0.3",
     "@types/bun": "1.4.2",
     "@types/node": "24.13.3",
     "@xstools-dev/cli-toolkit": "0.3.0",
     "@xstools-dev/config-ts": "0.2.0",
     "typescript": "5.8.3",
-    "vite-plus": "0.3.1"
+    "vite-plus": "0.3.2"
   },
   "packageManager": "pnpm@12.4.1"
 }
