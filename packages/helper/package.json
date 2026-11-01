@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@xstools/utility": "^1.1.0",
-    "uuid": "^14.0.2"
+    "uuid": "^14.0.3"
   },
   "devDependencies": {
     "orchid-orm": "1.62.4",
